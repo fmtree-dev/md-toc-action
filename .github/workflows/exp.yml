@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+      - "exp"
+
+jobs:
+  experiment_job:
+    runs-on: ubuntu-latest
+    name: A experiment job
+    steps:
+    - name: first step
+      id: hello
+      uses: fmtree-dev/md-toc-action@v1
+      with:
+        custom-directory: 'md-toc-custom'
+    # Use the output from the `hello` step
+    - name: Get the output status
+      run: echo "The status was ${{ steps.hello.outputs.success }}"
