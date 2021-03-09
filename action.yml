@@ -1,0 +1,15 @@
+name: 'md-toc'
+description: 'Generate README.md with auto-generated Table of Content'
+inputs:
+  custom-directory:  # id of input
+    description: 'custom directory, every directory with this custom directory will be scraped and a README.md with table of content will be generated.'
+    required: false
+    default: '.md-toc'
+outputs:
+  success:
+    description: "Whether this action is successful or there is an error"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.custom-directory }}
