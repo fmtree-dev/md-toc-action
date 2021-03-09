@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: checkout
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.github-action-token }}
     - name: first step
       id: hello
       uses: ./
