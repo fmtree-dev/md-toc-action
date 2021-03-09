@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     name: An experiment job
     steps:
+    - name: checkout
+        uses: actions/checkout@v2
     - name: first step
       id: hello
       uses: ./
