@@ -17,6 +17,7 @@ jobs:
       uses: ./
       with:
         custom-directory: 'md-toc-custom'
-    # Use the output from the `hello` step
+    - name: check resulting fs
+      run: ls
     - name: Get the output status
       run: echo "The status was ${{ steps.hello.outputs.success }}"
