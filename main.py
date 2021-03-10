@@ -1,7 +1,6 @@
 import glob
 import os
 
-import fmtree
 import pathlib2
 import argparse
 import subprocess as sp
@@ -15,7 +14,6 @@ def main(path: pathlib2.Path):
     gen_md_py = path / 'generate_readme.py'
     if toc_py.exists():
         print("custom toc.py exists")
-
     else:
         toc_py = __dir__ / 'toc.py'
     if gen_md_py.exists():

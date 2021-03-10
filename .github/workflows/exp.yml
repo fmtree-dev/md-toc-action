@@ -20,6 +20,7 @@ jobs:
       run: |
         ls -a
         ls -a ./data
-        cat ./data/README.md
+        ls -a ./data/OSCP/
+        ls -a ./data/OSCP/Exercises
     - name: Get the output status
       run: echo "The status was ${{ steps.hello.outputs.success }}"
