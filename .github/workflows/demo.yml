@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - "exp"
+      - "demo"
 jobs:
   experiment_job:
     runs-on: ubuntu-latest
