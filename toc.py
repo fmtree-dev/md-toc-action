@@ -21,6 +21,6 @@ if __name__ == '__main__':
                                                full_dir_link=False,
                                                remove_md_ext=True,
                                                ignore_root_dir=True,
-                                               link_dir_readme=True)
+                                               link_dir_readme=False)
     stringio = formatter.generate()
     formatter.to_stream(sys.stdout)
