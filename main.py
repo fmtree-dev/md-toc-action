@@ -44,9 +44,10 @@ if __name__ == '__main__':
     for k, v in args.__dict__.items():
         print(f"{k}: {v}")
     root = pathlib2.Path(__file__).parent
+    print(f"root: {root}")
     md_toc_paths = glob.glob(f"**/{args.custom_dir}", recursive=True)
     md_toc_paths = [root / path for path in md_toc_paths]
-
+    print(md_toc_paths)
     for path in md_toc_paths:
         assert path.exists()
         print(f"Current Path: {path}")
