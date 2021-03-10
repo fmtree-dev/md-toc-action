@@ -1,4 +1,6 @@
 import glob
+import os
+
 import fmtree
 import pathlib2
 import argparse
@@ -24,10 +26,14 @@ def main(path: pathlib2.Path):
         sp.run(f"python {str(toc_py)} --input {str(target_dir)} > {str(path / 'toc.txt')}", shell=True)
     except Exception as e:
         print(e)
-    # try:
-    #     sp.run(f"python {str(toc_py)} ", shell=True)
-    # except Exception as e:
-    #     print(e)
+    try:
+        sp.run(
+            f"python {str(gen_md_py)} --input {str(path / 'toc.txt')} --template_directory {str(path)} > "
+            f"{target_dir / 'README.md'}",
+            shell=True)
+    except Exception as e:
+        print(e)
+    os.remove(str(path / 'toc.txt'))
 
 
 if __name__ == '__main__':
