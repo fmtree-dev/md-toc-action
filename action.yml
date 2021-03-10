@@ -1,4 +1,4 @@
-name: 'md-toc'
+name: 'md-toc-action'
 description: 'Generate README.md with auto-generated Table of Content'
 inputs:
   custom-directory:  # id of input
