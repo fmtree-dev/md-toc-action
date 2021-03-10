@@ -2,7 +2,6 @@ on:
   push:
     branches:
       - "exp"
-
 jobs:
   experiment_job:
     runs-on: ubuntu-latest
@@ -16,7 +15,7 @@ jobs:
       id: hello
       uses: ./
       with:
-        custom-directory: 'md-toc-custom'
+        custom-directory: '.md-toc'
     - name: check resulting fs
       run: |
         ls -a
