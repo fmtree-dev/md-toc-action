@@ -4,6 +4,7 @@ import pathlib2
 
 from fmtree.scraper import Scraper
 from fmtree.filter import MarkdownFilter
+from fmtree import filter
 from fmtree.format import GithubMarkdownContentFormatter
 
 if __name__ == '__main__':
@@ -13,7 +14,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     scraper = Scraper(pathlib2.Path(args.input),
                       scrape_now=False, keep_empty_dir=False)
-    scraper.add_filter(MarkdownFilter(ignore_list=['.md-toc']))
+    scraper.add_filter(MarkdownFilter(ignore_list=['.*\.md-toc'], mode=filter.IGNORE_MODE))
     scraper.run()
     formatter = GithubMarkdownContentFormatter(scraper.get_tree(),
                                                no_readme_link=True,
