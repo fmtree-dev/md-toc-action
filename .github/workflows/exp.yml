@@ -19,8 +19,8 @@ jobs:
         custom-directory: 'md-toc-custom'
     - name: check resulting fs
       run: |
-        ls
-        ls ./data
+        ls -a
+        ls -a ./data
         cat ./data/README.md
     - name: Get the output status
       run: echo "The status was ${{ steps.hello.outputs.success }}"
