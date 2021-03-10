@@ -13,7 +13,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     scraper = Scraper(pathlib2.Path(args.input),
                       scrape_now=False, keep_empty_dir=False)
-    scraper.add_filter(MarkdownFilter(ignore_list=['build-tools']))
+    scraper.add_filter(MarkdownFilter(ignore_list=['.md-toc']))
     scraper.run()
     formatter = GithubMarkdownContentFormatter(scraper.get_tree(),
                                                no_readme_link=True,
