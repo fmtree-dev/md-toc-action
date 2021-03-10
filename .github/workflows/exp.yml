@@ -20,6 +20,7 @@ jobs:
     - name: check resulting fs
       run: |
         ls
-        cat data/README.md
+        ls ./data
+        cat ./data/README.md
     - name: Get the output status
       run: echo "The status was ${{ steps.hello.outputs.success }}"
