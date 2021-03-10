@@ -11,16 +11,10 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: ${{ github.github-action-token }}
-    - name: first step
-      id: hello
+    - name: Generate README.md
+      id: mdtoc
       uses: ./
       with:
         custom-directory: '.md-toc'
-    - name: check resulting fs
-      run: |
-        ls -a
-        ls -a ./data
-        ls -a ./data/OSCP/
-        ls -a ./data/OSCP/Exercises
     - name: Get the output status
-      run: echo "The status was ${{ steps.hello.outputs.success }}"
+      run: echo "The status was ${{ steps.mdtoc.outputs.success }}"
