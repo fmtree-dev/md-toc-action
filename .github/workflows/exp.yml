@@ -7,21 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     name: An experiment job
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
-      with:
-        ref: ${{ github.github-action-token }}
-    - name: Generate TOC
-      id: mdtoc
-      uses: ./
-      with:
-        custom-directory: '.md-toc'
-    - name: Commit Changes
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        commit_message: Auto Update Documentation
-        file_pattern: .
-        commit_user_name: Huakun Shen
-        commit_user_email: huakun.shen@huakunshen.com
-    - name: Get the output status
-      run: echo "The status was ${{ steps.mdtoc.outputs.success }}"
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.github-action-token }}
+      - name: Generate TOC
+        id: mdtoc
+        uses: fmtree-dev/md-toc-action@v1
+        with:
+          custom-directory: '.md-toc'
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto Update Documentation
+          file_pattern: .
+          commit_user_name: Huakun Shen
+          commit_user_email: huakun.shen@huakunshen.com
+      - name: Get the output status
+        run: echo "The status was ${{ steps.mdtoc.outputs.success }}"
